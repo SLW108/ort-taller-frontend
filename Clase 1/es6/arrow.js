@@ -17,48 +17,11 @@ function User (name, age) {
   this.name = name
   this.age = age
 
+  console.log(this)
+
   setTimeout(() => {
-    console.log(myfunc())
+    console.log(this.name)
   }, 1000)
-
-  const myfunc = () => 'Hola'
 }
-
-const users = [2, 4]
-
-users.map(value => value * 2)
 
 const user = new User('Martín', 33)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const me = {
-  name: "martin",
-  age: 33
-}
-
-const { name, age } = me;
-
-
-
-

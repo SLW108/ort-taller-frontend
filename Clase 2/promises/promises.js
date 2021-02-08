@@ -1,18 +1,27 @@
-const sumar = (a, b) => a + b
-
-function miPromesa (value1, value2) {
-  const promise = new Promise((resolve, reject) => {
-    try {
-      const result = sumar(value1, value2)
-      resolve(result)
-    } catch (error) {
-      reject('Algo salió mal')
-    }
-  })
-  return promise
+const findUser = () => {
+  return {
+    name: 'Martín',
+    age: 33
+  }
 }
 
-// Consumo la promesa
-miPromesa(2, 4)
-  .then(res => console.log('Suma exitosa', res))
-  .catch(err => console.log(err))
+const promise = new Promise((resolve, reject) => {
+  try {
+    const user = findUser()
+    resolve(user)
+  } catch (error) {
+    console.log('catch!!!!')
+    reject(`Ha ocurrido un error: ${error}`)
+  }
+})
+
+promise
+  .then(user => {
+    console.log('Yeyy! promesa cumplida!')
+    console.log(user)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+
+console.log(promise)

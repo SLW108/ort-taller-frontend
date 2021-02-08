@@ -1,5 +1,13 @@
-function suma (a, b) {
-  return a + b
+const sum = (a, b) => a + b
+const res = (a, b) => a - b
+
+class Calculator {
+  suma (a, b) {
+    sum(a, b)
+  }
+  resta (a, b) {
+    res(a, b)
+  }
 }
 
-export { suma }
+export default Calculator
