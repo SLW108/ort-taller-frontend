@@ -7,7 +7,7 @@ import Stats from './Stats/Stats'
 // Styles
 import './Dashboard.css'
 // Service
-import { getTodos } from '../../api/service'
+import { getTodos } from '../../services/api'
 
 const Dashboard = () => {
   const [section, setSection] = useState('list')

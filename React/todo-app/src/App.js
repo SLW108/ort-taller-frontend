@@ -1,15 +1,20 @@
 import { useState } from 'react'
-
+// Import main Components
 import Header from './components/Header/Header'
 import Login from './components/Index/Login/Login'
 import Dashboard from './components/Dashboard/Dashboard'
 
+// Import generic styles
 import 'bootstrap-css-only'
 import './App.css'
 
 const App = () => {
+  // Define state
   const [userLogged, setUserLogged] = useState(null)
-
+  /**
+   * Change the state of the userLogged
+   * @param {object} user
+   */
   const onUserLogged = user => {
     setUserLogged(user)
   }

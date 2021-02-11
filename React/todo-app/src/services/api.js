@@ -1,5 +1,9 @@
 const baseServiceURL = 'https://jsonplaceholder.typicode.com'
 
+/**
+ * LLamada a la API para obtener los todos
+ * @returns {Promise}
+ */
 const getTodos = () => {
   return fetch(`${baseServiceURL}/todos`).then(response => {
     return new Promise((resolve, reject) => {
@@ -11,20 +15,27 @@ const getTodos = () => {
     })
   })
 }
-
-const loginUser = userData => {
+/**
+ * MOCK de llamada a una API para login
+ * @param {string} username
+ * @param {string} password
+ * @returns {Promise}
+ */
+const loginUser = ({ username, password }) => {
   // Aca hago el fetch y la validación correspondiente
   // Por ahora data estática
   const user = {
     id: 1,
     name: 'Martín Luz',
-    email: 'martin.luz@gmail.com',
+    password: '1234',
+    username: 'martin.luz@gmail.com',
     token: Math.random()
   }
-  // cuando lo haga con fetch real al servicio, el propio fetch me devuelve la promesa
-  return new Promise((resolve, reject) => {
-    resolve(user)
-  })
+  if (user.username === username && user.password === password) {
+    return Promise.resolve(user)
+  } else {
+    return Promise.reject('Invalid credentials')
+  }
 }
 
 export { getTodos, loginUser }

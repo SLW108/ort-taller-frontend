@@ -1,14 +1,6 @@
 import React from 'react'
-import Avatar from '@material-ui/core/Avatar'
 import logo from './logo.svg'
 import './Header.css'
-
-const getFirstLetterOfTheName = str => {
-  const [firstLetter] = [...str]
-  if (firstLetter) {
-    return firstLetter.toUpperCase()
-  }
-}
 
 const Header = ({ user }) => (
   <header className='App-header'>
@@ -24,11 +16,6 @@ const Header = ({ user }) => (
         />
         React to-do app
       </a>
-      {user ? (
-        <Avatar>{getFirstLetterOfTheName(user.username || '')}</Avatar>
-      ) : (
-        ''
-      )}
     </nav>
   </header>
 )

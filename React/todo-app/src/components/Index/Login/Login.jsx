@@ -1,12 +1,13 @@
 import { useState } from 'react'
+import { loginUser } from '../../../services/api'
 import './Login.css'
 
 const Login = props => {
-  // State
+  // Degfine State
   const [username, setUserName] = useState('')
   const [password, setPassword] = useState('')
 
-  // Events
+  // Define Events
   const onHandleChange = e => {
     const { name, value } = e.target
     if (name === 'username') {
@@ -19,15 +20,18 @@ const Login = props => {
   const onHandleSubmit = e => {
     // Valido
     e.preventDefault()
-    console.log(username, password)
-
-    // Envío datos a la API
-
-    // Si está todo ok, entero a todos quienes esten esuchando el cambio
-    props.onUserLogged({
+    loginUser({
       username,
       password
     })
+      .then(response => {
+        // Si está todo ok, entero a todos quienes esten esuchando el cambio
+        props.onUserLogged({
+          username,
+          password
+        })
+      })
+      .catch(err => alert(err))
   }
 
   return (
