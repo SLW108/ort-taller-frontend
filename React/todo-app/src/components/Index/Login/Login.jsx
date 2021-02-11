@@ -30,10 +30,7 @@ const Login = props => {
     })
       .then(response => {
         // Si está todo ok, entero a todos quienes esten esuchando el cambio
-        props.onUserLogged({
-          username,
-          password
-        })
+        props.onUserLogged(response)
       })
       .catch(err => alert(err))
   }

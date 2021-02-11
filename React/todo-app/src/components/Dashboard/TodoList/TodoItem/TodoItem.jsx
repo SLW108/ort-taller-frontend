@@ -3,6 +3,7 @@
  * @param {number} id
  * @param {string} title
  * @param {boolean} completed
+ * @returns {jsx}
  */
 const TodoItem = ({ id, title, completed }) => (
   <tr>

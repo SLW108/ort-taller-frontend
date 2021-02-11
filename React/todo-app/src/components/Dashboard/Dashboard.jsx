@@ -10,15 +10,17 @@ import { getTodos } from '../../services/api'
 /**
  * Dashboard Component
  */
-const Dashboard = () => {
+const Dashboard = ({ user }) => {
   const [todos, setTodos] = useState([])
   /**
    * Load todos on component mounting
    */
   useEffect(() => {
-    getTodos().then(todos => {
+    const { id } = user
+    getTodos(id).then(todos => {
       setTodos(todos)
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

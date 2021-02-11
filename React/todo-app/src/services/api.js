@@ -4,8 +4,10 @@ const baseServiceURL = 'https://jsonplaceholder.typicode.com'
  * LLamada a la API para obtener los todos
  * @returns {Promise}
  */
-const getTodos = () => {
-  return fetch(`${baseServiceURL}/todos`).then(response => {
+const getTodos = id => {
+  let url = `${baseServiceURL}/todos`
+
+  return fetch(id !== null ? `${url}?userId=${id}` : url).then(response => {
     return new Promise((resolve, reject) => {
       if (response.status === 200) {
         resolve(response.json())
@@ -16,10 +18,11 @@ const getTodos = () => {
   })
 }
 /**
- * MOCK de llamada a una API para login
+ * @description MOCK de llamada a una API para login
  * @param {string} username
  * @param {string} password
  * @returns {Promise}
+ *
  */
 const loginUser = ({ username, password }) => {
   // Aca hago el fetch y la validación correspondiente

@@ -26,9 +26,10 @@ const App = () => {
   return (
     <section className='App'>
       <Header user={userLogged} />
-      {userLogged ? <Dashboard /> : <Login onUserLogged={onUserLogged} />}
+      {userLogged ? <Dashboard user={userLogged}/> : <Login onUserLogged={onUserLogged} />}
     </section>
   )
 }
+
 
 export default App
