@@ -1,10 +1,9 @@
 import Paper from '@material-ui/core/Paper'
-
-const TodoList = ({ todos, onHandleChangeCompleted }) => {
-  const onHandleChange = (isChecked, id) => {
-    onHandleChangeCompleted(isChecked, id)
-  }
-
+/**
+ * TodoList Component
+ * @param {object} items
+ */
+const TodoList = ({ items }) => {
   return (
     <Paper>
       <table className='table'>
@@ -17,19 +16,12 @@ const TodoList = ({ todos, onHandleChangeCompleted }) => {
           </tr>
         </thead>
         <tbody>
-          {todos.map(({ id, title, completed }) => (
+          {items.map(({ id, title, completed }) => (
             <tr>
               <th scope='row'>{id}</th>
               <td>{title}</td>
               <td>
-                <input
-                  type='checkbox'
-                  checked={completed}
-                  onChange={e => {
-                    const { currentTarget } = e
-                    onHandleChange(currentTarget.checked, id)
-                  }}
-                />
+                <input type='checkbox' checked={completed} />
               </td>
               <td>
                 <button className='btn btn-danger'>Delete</button>

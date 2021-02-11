@@ -2,6 +2,10 @@ import { useState } from 'react'
 import { loginUser } from '../../../services/api'
 import './Login.css'
 
+/**
+ * Login Component
+ * @param {object} props
+ */
 const Login = props => {
   // Degfine State
   const [username, setUserName] = useState('')

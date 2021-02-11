@@ -8,6 +8,10 @@ import Dashboard from './components/Dashboard/Dashboard'
 import 'bootstrap-css-only'
 import './App.css'
 
+/**
+ * App Component
+ * Mi aplicación entera parte desde este componente
+ */
 const App = () => {
   // Define state
   const [userLogged, setUserLogged] = useState(null)
