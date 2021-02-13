@@ -1,5 +1,8 @@
 import React from 'react'
 import logo from './logo.svg'
+
+import ProfileAvatar from './Avatar/Avatar'
+
 import './Header.css'
 
 const Header = ({ user }) => (
@@ -16,6 +19,7 @@ const Header = ({ user }) => (
         />
         React to-do app
       </a>
+      {user ? <ProfileAvatar name={user.name} /> : ''}
     </nav>
   </header>
 )

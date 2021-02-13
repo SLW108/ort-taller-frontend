@@ -10,7 +10,7 @@ const TodoList = ({ items }) => {
         <thead>
           <tr>
             <th scope='col'>#</th>
-            <th scope='col'>Titule</th>
+            <th scope='col'>Title</th>
             <th scope='col'>Completed</th>
             <th scope='col'>Delete</th>
           </tr>
