@@ -1,4 +1,5 @@
 import Paper from '@material-ui/core/Paper'
+import TodoItem from './TodoItem/TodoItem'
 /**
  * TodoList Component
  * @param {object} items
@@ -16,17 +17,8 @@ const TodoList = ({ items }) => {
           </tr>
         </thead>
         <tbody>
-          {items.map(({ id, title, completed }) => (
-            <tr>
-              <th scope='row'>{id}</th>
-              <td>{title}</td>
-              <td>
-                <input type='checkbox' checked={completed} />
-              </td>
-              <td>
-                <button className='btn btn-danger'>Delete</button>
-              </td>
-            </tr>
+          {items.map(item => (
+            <TodoItem {...item} />
           ))}
         </tbody>
       </table>
