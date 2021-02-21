@@ -41,4 +41,32 @@ const loginUser = ({ username, password }) => {
   }
 }
 
-export { getTodos, loginUser }
+/**
+ * Ejemplo de guardado de un todo usando POST
+ * @param {number} userId
+ * @param {string} title
+ * @param {boolean} completed
+ */
+const saveTodo = ({ userId, title, completed }) => {
+  // En el body se envía la información a ser guardada
+  const body = JSON.stringify({
+    userId: userId,
+    title: title,
+    completed: completed
+  })
+  // Defino mis headers. De necesitar un Authorization, lo agregaría acá
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: body
+  }
+
+  fetch(baseServiceURL, requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error))
+}
+
+export { getTodos, loginUser, saveTodo }
