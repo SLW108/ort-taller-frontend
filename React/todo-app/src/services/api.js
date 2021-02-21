@@ -64,7 +64,7 @@ const saveTodo = ({ userId, title, completed }) => {
   }
 
   fetch(baseServiceURL, requestOptions)
-    .then(response => response.text())
+    .then(response => response.json())
     .then(result => console.log(result))
     .catch(error => console.log('error', error))
 }
