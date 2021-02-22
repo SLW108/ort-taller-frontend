@@ -1,16 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-
+import { Link, useRouteMatch } from 'react-router-dom'
 /**
  * NavbarItem
  * @param {object} props
  */
-const NavbarItem = ({ name, slug, changeSection }) => {
-  const onHandleClick = () => changeSection(slug)
+const NavbarItem = ({ name, slug }) => {
+  const { url } = useRouteMatch()
   return (
     <li className='nav-item'>
-      <a className='nav-link' href='#' onClick={onHandleClick}>
-        {name}
-      </a>
+      <Link to={`${url}/${slug}`}>{name}</Link>
     </li>
   )
 }

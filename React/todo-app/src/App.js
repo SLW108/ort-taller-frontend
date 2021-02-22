@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Switch, Route, useHistory } from 'react-router-dom'
 // Import main Components
 import Header from './components/Header/Header'
 import Login from './components/Index/Login/Login'
@@ -15,21 +16,29 @@ import './App.css'
 const App = () => {
   // Define state
   const [userLogged, setUserLogged] = useState(null)
+  const history = useHistory()
   /**
    * Change the state of the userLogged
    * @param {object} user
    */
   const onUserLogged = user => {
     setUserLogged(user)
+    history.push('/dashboard')
   }
 
   return (
     <section className='App'>
       <Header user={userLogged} />
-      {userLogged ? <Dashboard user={userLogged}/> : <Login onUserLogged={onUserLogged} />}
+      <Switch>
+        <Route path='/' exact>
+          <Login onUserLogged={onUserLogged} />
+        </Route>
+        <Route path='/dashboard'>
+          {userLogged ? <Dashboard user={userLogged} /> : history.push('/')}
+        </Route>
+      </Switch>
     </section>
   )
 }
-
 
 export default App

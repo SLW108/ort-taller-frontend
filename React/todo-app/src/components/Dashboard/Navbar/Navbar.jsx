@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import './Navbar.css'
 import NavbarItem from './NavbarItem/NavbarItem'
+import './Navbar.css'
 
 const sections = [
   { name: 'Todo List', slug: 'todolist' },
